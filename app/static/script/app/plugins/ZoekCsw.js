@@ -251,7 +251,7 @@ gxp.plugins.ZoekCsw = Ext.extend(gxp.plugins.Tool, {
           document.getElementById("csw-details").style.display = "block";
 		  
           var OLrequest = OpenLayers.Request.GET({
-               url : "http://geo.zaanstad.nl/geonetwork/srv/nl/metadata.show.embedded?uuid=" + id + "&currTab=simple",
+               url : "http://localhost:8080/geonetwork/srv/nl/metadata.show.embedded?uuid=" + id + "&currTab=simple",
                async: true,
                headers: {
                    "Content-Type": "application/html"
@@ -439,23 +439,18 @@ gxp.plugins.ZoekCsw = Ext.extend(gxp.plugins.Tool, {
         	
         	var obj = {key : "publiek", background : false, singletile : false};
         
-            if (url.toLowerCase().match("geo.zaanstad.nl/geowebcache") != null) {
-            	obj.key = "tiles";
+            if (url.toLowerCase().match("localhost:8080/geoserver/wms") != null) {
+            	obj.key = "publiekgeoserver";
             	obj.background = true;
             };
-            if (url.toLowerCase().match("map16z/geowebcache") != null) {
-            	obj.key = "intratiles";
-            	obj.background = true;
-            };
-            if (url.toLowerCase().match("geo.zaanstad.nl/geoserver") != null) {
+            if (url.toLowerCase().match("geoserver.nieuwegein.nl/geowebcache") != null) {
             	obj.key = "publiek";
-            	obj.background = false;
-            };
-            if (url.toLowerCase().match("map16z/geoserver") != null) {
-            	obj.key = "intranet";
-            	obj.background = false;
-            };
-            
+            	obj.background = true;
+            };   
+            if (url.toLowerCase().match("localhost:8081/geoserver") != null) {
+            	obj.key = "testgeoserver";
+            	obj.background = true;
+            };			
             if (url.toLowerCase().match("singletile=true") != null) {
             	obj.singletile = true;
             };
@@ -622,7 +617,7 @@ gxp.plugins.ZoekCsw = Ext.extend(gxp.plugins.Tool, {
             {
                 id: 'tb_listitems',
                 xtype: 'toolbar',
-                style: 'background: #00A5C7;',
+                style: 'background: #88179F;',
                 dock: 'top',
                 items: [
                     {

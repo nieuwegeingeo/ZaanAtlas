@@ -36,7 +36,7 @@
       <xsl:if test="contains($value,'resources.get?')">
 	  <img class="align-left thumbnail" caption="thumbnail">
 	  <xsl:attribute name="src">
-	  	<xsl:text>http://geo.zaanstad.nl/geonetwork/srv/nl/</xsl:text>
+	  	<xsl:text>http://localhost:8080/geonetwork/srv/nl/</xsl:text>
 	  	<xsl:value-of select="./dc:URI[@name='thumbnail']"/>
 	  </xsl:attribute>
 	  </img>

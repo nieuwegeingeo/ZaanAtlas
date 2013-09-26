@@ -74,7 +74,7 @@ GeoExplorer.Composer = Ext.extend(GeoExplorer, {
             }, {
                 ptype: "app_zoekcsw",
                 actionTarget: "layers.tbar",
-                search: {selectedSource: "http://geo.zaanstad.nl/geonetwork/srv/nl/csw"}
+                search: {selectedSource: "http://localhost:8081/geonetwork/srv/nl/csw"}
             }, {
                 ptype: "gxp_addlayers",
                 //showButtonText: true,
